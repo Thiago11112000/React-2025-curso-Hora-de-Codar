@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import City from './assets/city.jpg';
+import ManageData from './components/ManageData';
 function App() {
 
   return (
@@ -16,7 +17,7 @@ function App() {
     <img src={City} alt="Cidade" />
 
       <div>
-
+       < ManageData/>
       </div>
 </div>
   )
