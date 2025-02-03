@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CarDetails = ({brand,km,color,newCar}) => {
+export const CarDetails = ({brand, km, color, newCar}) => {
   return (
     <div>
         <h2>Detalhes do carro</h2>
@@ -13,4 +13,5 @@ export const CarDetails = ({brand,km,color,newCar}) => {
     </div>
   )
 }
+
 export default CarDetails

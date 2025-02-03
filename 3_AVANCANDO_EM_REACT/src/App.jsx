@@ -11,6 +11,13 @@ import CarDetails from './components/CarDetails';
 function App() {
 const name = "Joaquim";
 const [userName] = useState("Maria");
+
+const cars = [
+  {id: 1, brand: "FERRARI",km: 0,   color: "Amarela", newCar: true},
+  {id: 2, brand: "KIA",km: 34433,   color: "Branco", newCar: false},
+  {id: 3, brand: "Renault",km: 234,  color: "Azul", newCar: false}
+
+]
   return (
     <div className='App'>
       <h1>Avançando em React</h1>
@@ -30,8 +37,13 @@ const [userName] = useState("Maria");
        {/*destructuring*/}
        <CarDetails brand= "VW" km={100000} color= "azul"  newCar={false}/>
        {/*reaproveitando */}
-       <CarDetails brand= "FORD" km={150} color= "Vermelha" newCar={true}/>
+       <CarDetails brand= "FORD" km={0} color= "Vermelha" newCar={true}/>
        <CarDetails brand= "FIAT" km={4500} color= "branco" newCar={false}/>
+        {/*loop em array de cars */}
+        {cars.map((car)=>(
+          <CarDetails  brand={car.brand} color={car.color} km={car.km} newCar={car.newCar} />
+        ))}
+
       </div>
 </div>
   )
