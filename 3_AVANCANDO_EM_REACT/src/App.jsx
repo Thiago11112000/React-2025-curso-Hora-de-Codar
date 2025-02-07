@@ -10,7 +10,7 @@ import { useState } from 'react';
 import CarDetails from './components/CarDetails';
 import Fragment from './components/Fragment';
 import Container from './components/Container';
-
+import ExecutionFunction from './components/ExecutionFunction';
 function App() {
 const name = "Joaquim";
 const [userName] = useState("Maria");
@@ -21,6 +21,10 @@ const cars = [
   {id: 3, brand: "Renault",km: 234,  color: "Azul", newCar: false}
 
 ]
+function showMassage() {
+  console.log("Evento do componente pai!")
+}
+
   return (
     <div className='App'>
       <h1>Avançando em React</h1>
@@ -44,7 +48,12 @@ const cars = [
        <CarDetails brand= "FIAT" km={4500} color= "branco" newCar={false}/>
         {/*loop em array de cars */}
         {cars.map((car)=>(
-          <CarDetails  brand={car.brand} color={car.color} km={car.km} newCar={car.newCar} />
+          <CarDetails 
+          key={car.id}
+           brand={car.brand} 
+           color={car.color}
+            km={car.km} 
+            newCar={car.newCar} />
         ))}
         {/*Fragment*/}
         <Fragment propFragment="teste"/>
@@ -55,6 +64,8 @@ const cars = [
        <Container myValue="testing 2"> 
         <h5>Testando o container </h5>
        </Container>
+       {/*executar função */}
+      < ExecutionFunction myFunction={showMassage}/>
       </div>
 </div>
   )
