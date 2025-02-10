@@ -8,7 +8,7 @@ import MyComponent from './components/MyComponent';
 function App() {
   const n = 15;
   const [name] = useState("Matheus");
-
+  const redTitle = false;
   return (
     <div className='App'>
       {/* Css Global */}
@@ -29,6 +29,11 @@ function App() {
       <h2 style={name === "Matheus" ? { color: "green", backgroundColor: "#000" } : null}>
         Teste
       </h2>
+
+      {/*Classe dinâmica*/}
+      <h2 className={redTitle ? "red-title": "title" }>
+         Este título vai ter classe dinâmica
+         </h2>
     </div>
   );
 }
