@@ -12,6 +12,13 @@ return <div className='App'>
     {/*Css de componente */}
   <MyComponent/>
   <p> Este parágrafo é do App.jsx</p>
+  {/*Inline CSS */}
+  <p style={{color:'magenta', padding:"25px", borderTop: "2px solid red"}}> 
+    Este elemento foi estilizado de forma inline 
+  </p>
+  <p style={{color:'magenta', padding:"25px", borderTop: "2px solid red"}}> 
+    Este elemento foi estilizado de forma inline 
+  </p>
 </div>
 
   
