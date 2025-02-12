@@ -18,6 +18,10 @@ const Myform = ({ user }) => { // Desestruturação da prop user
     event.preventDefault();
     console.log("Enviando o formulário");
     console.log(name, email);
+    // 7 - limpar form
+    setName("");
+    setEmail("");
+
   };
 
   return (
