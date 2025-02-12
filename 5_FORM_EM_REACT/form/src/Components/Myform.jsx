@@ -6,6 +6,7 @@ const Myform = ({ user }) => { // Desestruturação da prop user
   // 3 - gerenciamento de dados
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
+  const [bio, setBio] = useState(""); 
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -17,11 +18,11 @@ const Myform = ({ user }) => { // Desestruturação da prop user
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Enviando o formulário");
-    console.log(name, email);
+    console.log(name, email, bio);
     // 7 - limpar form
     setName("");
     setEmail("");
-
+    setBio("");
   };
 
   return (
@@ -36,7 +37,7 @@ const Myform = ({ user }) => { // Desestruturação da prop user
             name="name"
             placeholder="Digite o seu nome"
             onChange={handleName}
-            value={name} 
+            value={name}
           />
         </div>
         {/*2 Label envolvendo Input*/}
@@ -48,10 +49,15 @@ const Myform = ({ user }) => { // Desestruturação da prop user
             name="email"
             placeholder="Digite o seu e-mail"
             onChange={(e) => setEmail(e.target.value)}
-            value={email} 
+            value={email}
           />
         </label>
-
+        <textarea
+          name="bio"
+          placeholder="Descrição do usuário"
+          onChange={(e) => setBio(e.target.value)}
+          value={bio}
+        ></textarea>
         <input type="submit" value="Enviar" />
       </form>
     </div>
