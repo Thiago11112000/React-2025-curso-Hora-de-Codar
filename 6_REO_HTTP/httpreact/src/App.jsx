@@ -5,36 +5,43 @@ import { useFetch } from './hooks/useFetch';
 const url = "http://localhost:3000/products";
 
 function App() {
-  // Initialize state to hold our product data
+  // Inicializa o estado para armazenar os dados dos produtos
   const [products, setProducts] = useState([]);
-  const { data: items } = useFetch(url); // Desestruturação de 'data' como 'items'
+  
+  // Usando o hook useFetch para pegar os produtos da API
+  const { data: items, httpConfig } = useFetch(url); // Desestruturação de 'data' como 'items'
   console.log(items); 
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  // 2 - Add products
+  // 2 - Adiciona produtos
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Previne o comportamento padrão do formulário
 
     const product = {
       name,
       price
     }
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    // Comentado: método antigo usando fetch diretamente
+    // const res = await fetch(url, {
+    //   method: "POST", // Método POST para adicionar o produto
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(product), // Corpo com os dados do produto em formato JSON
+    // });
 
-    // 3 - Carregamento dinâmico
-    const addedProduct = await res.json();
-    setProducts((prevProducts) => [...prevProducts, addedProduct]); // Adiciona o produto retornado do POST
-    setName("");
-    setPrice("");
+    // // 3 - Carregamento dinâmico
+    // const addedProduct = await res.json(); // Converte a resposta da API em um objeto JSON
+    // setProducts((prevProducts) => [...prevProducts, addedProduct]); // Atualiza a lista de produtos
+
+    // 5 - Refatorando para usar o httpConfig do useFetch
+    httpConfig(product, "POST"); // Usando o hook httpConfig para configurar o POST
+
+    setName(""); // Limpa o campo de nome
+    setPrice(""); // Limpa o campo de preço
   }
 
   return (
@@ -56,7 +63,7 @@ function App() {
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)} // Atualiza o estado 'name'
             />
           </label>
           <label>
@@ -64,7 +71,7 @@ function App() {
             <input
               type="number"
               value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={(e) => setPrice(e.target.value)} // Atualiza o estado 'price'
             />
           </label>
           <input type="submit" value="Criar" />

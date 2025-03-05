@@ -29,6 +29,11 @@
       "id": "d7b1",
       "name": "cadeira",
       "price": "200"
+    },
+    {
+      "id": "8e47",
+      "name": "Mouse",
+      "price": "60"
     }
   ]
 }
