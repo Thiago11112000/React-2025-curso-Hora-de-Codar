@@ -54,6 +54,16 @@
       "id": "17a0",
       "name": "Teste",
       "price": "200"
+    },
+    {
+      "id": "38b8",
+      "name": "Suporte Microfone",
+      "price": "70"
+    },
+    {
+      "id": "52db",
+      "name": "Suporte Microfone 3",
+      "price": "65"
     }
   ]
 }
