@@ -13,6 +13,7 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Info from './pages/info'
+import Notfound from './pages/Notfound'
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <Route path="/products/:id" element={<Product />} />
       {/*6 - Nested route  */}
       <Route path='/products/:id/info' element={<Info />} />
+      {/* 7 - No match round  */}
+      <Route path="*" element={<Notfound />}/>
     </Routes>
     </BrowserRouter>
    </div>
